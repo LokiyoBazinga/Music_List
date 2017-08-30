@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Music Library
+      <input type="search" #searchBox (keyup)="search(searchBox.value)" placeholder="Type to search for artist...">
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>		
+<div class="row">
+  <div *ngIf="searchResults.length > 0" >
+    <h3>Artistas</h3>
+    <ion-list *ngFor="let artist of searchResults">
+    	<ion-item href="#" class="item item-block" >
+    		<ion-avatar>
+    			<img src="{{artist.artworkUrl60}}" alt="{{artist.artistName}}">
+    		</ion-avatar>
+    		<h2>{{artist.artistName}}</h2>
+    	</ion-item>
+    </ion-list>
+    <!--  <a id="{{ artist.artistId }}" href="#" (click)="getAlbums(artist.artistId, artist.artistName)">{{ artist.artistName }}</a>
+    </p>-->
+  </div>
+</div>
+
+</ion-content>
+
+
